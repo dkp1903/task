@@ -23,9 +23,7 @@ import com.publicissapient.weather.util.WeatherUtil;
  * The implementation class for WeatherService interface.
  * 
  * @see com.publicissapient.weather.service.WeatherService
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 
 

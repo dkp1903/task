@@ -3,9 +3,7 @@ package com.publicissapient.weather.util;
 /**
  * The Interface Constants.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 public interface Constants {
 

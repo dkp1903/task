@@ -10,9 +10,7 @@ import com.publicissapient.weather.model.Weather;
 /**
  * The Interface IWeatherClient.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 @FeignClient(name = "openWeatherDataClient", url = "${feign.client.url}")
 public interface IWeatherClient {

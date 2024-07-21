@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * The Class WeatherDataException.
  *
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class BadWeatherDataException extends RuntimeException {

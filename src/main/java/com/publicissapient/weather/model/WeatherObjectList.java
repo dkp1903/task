@@ -6,9 +6,7 @@ import java.util.List;
 /**
  * The Class WeatherObjectList.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 public class WeatherObjectList {
 

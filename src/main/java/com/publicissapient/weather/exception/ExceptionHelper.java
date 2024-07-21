@@ -10,9 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 /**
  * The Class ExceptionHelper.
  *
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 
 @ControllerAdvice

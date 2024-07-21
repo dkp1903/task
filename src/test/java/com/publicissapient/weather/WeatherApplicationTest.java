@@ -10,9 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 /**
  * The Class DiffApplicationTest.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 
 @RunWith(SpringRunner.class)

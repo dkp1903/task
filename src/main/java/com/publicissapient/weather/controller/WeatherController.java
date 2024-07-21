@@ -21,9 +21,7 @@ import com.publicissapient.weather.util.Constants;
 /**
  * The Class WeatherController.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 @RestController()
 @RequestMapping("/v1/weather")

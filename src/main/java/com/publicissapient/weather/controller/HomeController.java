@@ -8,9 +8,7 @@ import org.springframework.web.servlet.view.RedirectView;
 /**
  * The Class HomeController.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 @RestController()
 

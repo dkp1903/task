@@ -3,9 +3,7 @@ package com.publicissapient.weather.util;
 
 /**
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  *
  */
 

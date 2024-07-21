@@ -3,9 +3,7 @@ package com.publicissapient.weather.model;
 /**
  * The Class City.
  * 
- * @author Rantidev Singh
- * @version 1.0
- * @since 2021-04-18
+
  */
 public class City {
 
