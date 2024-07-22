@@ -1,11 +1,11 @@
 # weather-api
 
-This project is created as per the requirements of the assignment provided by publicissapient.
-The purpose of this project is to consume the OpenWeatherMap api .
-
 ### Design Principles :
-This api has been developed using SOLID design principles. More info about SOLID 
-design principles can be found on https://en.wikipedia.org/wiki/SOLID
+SOLID - 
+- Single Responsibility - One class doing only one thing - getting the weather, displaying it etc
+- Open Closed - Open for extension, closed for modification
+- Interface Segregation - Different interfaces for different tasks (only one here)
+- Dependency inversion - Autowiring dependencies to avoid tight coupling
 
 ### Requirements:
 	
@@ -19,23 +19,19 @@ The assignment
 
 ## Tech Stack
 
-* Since I am java programmer and I've been using spring framework from past 10 years .
- The choice was quite obvious to use Spring Boot .
- Other than spring boot , maven , junit, docker , swagger, tomcat were used. 
+Frontend : Next.js, Typescript, TailwindCSS
+Service : Spring Boot, Docker, Jenkins
 
 ## Installation
 
-This project is java-based. So It requires Jdk 11 (or later) and Maven 3.6.3 (or later)  to run.
-
 ```sh
-$ cd weather-api
 $ mvn package
 $ java -jar target/weather-api-1.0.0.jar 
 ```
 Another way to run this api is to use docker (latest image is already pushed to docker hub)
 
 ```sh
-$ docker run -p 8080:8080 rantidev7/weather-api:latest
+$ docker run -p 8080:8080 dkp1903/weather-api:latest
 
 ```
 Or if there is need to build new image then it can also be build and pushed to 
@@ -47,14 +43,13 @@ $ mvn jib:build
 ```
 And then run 
 ```
-$ docker run -p 8080:8080 rantidev7/weather-api:latest
+$ docker run -p 8080:8080 dkp1903/weather-api:latest
 ```
 
 
 ## Running tests
 After changes you can run tests using Maven command:
 ```sh
-$ cd weather-api
 $ mvn test
 ```
 
@@ -76,11 +71,4 @@ $ mvn test
 	```
 	Then go to the folder /target/site/apidocs
 
-2. Google's code convention is being forced via the checkstyle.xml.
-3. Swagger is included and automatic updation of swagger specification is done.
-
-## Things to be included in future version :
-1. CI/CD should also be implemented for this api.
-2. If we want to move to microservioces architecture then probably we can look for Netflix OSS
-    (apigateway , service descovery , cloud config etc.)
-3. Current version doen't support maven/spring profiles , which needs to be implemented.
+2. Swagger is included and automatic updation of swagger specification is done.

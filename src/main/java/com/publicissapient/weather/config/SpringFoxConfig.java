@@ -17,10 +17,6 @@ import java.util.Collections;
  * mentioned as swagger). Whenever there are code changes in this application
  * specification/documentation will be automatically updated. EnableSwagger2
  * indicates that Swagger support should be enabled .
- *
- * @author Rantidev Singh
- * @version 1.0
- * @since 2020-10-01
  */
 @Configuration
 @EnableSwagger2
@@ -47,9 +43,9 @@ public class SpringFoxConfig {
      * @return ApiInfo
      */
     public ApiInfo apiInfo() {
-        return new ApiInfo("Diff API", "Rest API to get weather forcast for a city from OpenWeatherMap api ", "v1",
+        return new ApiInfo("Diff API", "Weather API", "v1",
                 "TERMS OF SERVICE URL",
-                new Contact("Rantidev Singh", "", "rantidev.singh1@gmail.com"), "LICENSE",
+                new Contact("Dushyant Pathak", "", "dushyantpathak6789@gmail.com"), "LICENSE",
                 "LICENSE URL", Collections.emptyList());
     }
 }

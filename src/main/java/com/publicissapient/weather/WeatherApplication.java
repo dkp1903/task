@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @SuppressWarnings("deprecation")
 @SpringBootApplication
-@EnableFeignClients(basePackages = { "com.publicissapient.weather.client" })
+// @EnableFeignClients(basePackages = { "com.publicissapient.weather.client" })
 public class WeatherApplication {
 
     /**

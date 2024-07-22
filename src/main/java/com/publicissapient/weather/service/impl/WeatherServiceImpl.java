@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.publicissapient.weather.client.IWeatherClient;
 import com.publicissapient.weather.controller.WeatherController;
@@ -34,8 +35,17 @@ public class WeatherServiceImpl implements WeatherService {
     private static final Logger LOG = LoggerFactory.getLogger(WeatherController.class);
 
     /** The weather client. */
+    // @Autowired
+    // private IWeatherClient weatherClient;
+
+    private final RestTemplate restTemplate;
+
     @Autowired
-    private IWeatherClient weatherClient;
+    public WeatherServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    private String weatherUrl;
 
     /**
      * Gets the city weather forecast for next three days.
@@ -48,9 +58,9 @@ public class WeatherServiceImpl implements WeatherService {
     public List<WeatherForecast> getCityWeather(String city) {
         
         LOG.trace("Entering getCityWeather(city={})", city);
-
-        Weather cityWeather = weatherClient.getWeather(city);
-
+        weatherUrl = "https://samples.openweathermap.org/data/2.5/forecast?q=&appid=d2929e9483efc82c82c32ee7e02d563e";
+        // Weather cityWeather = weatherClient.getWeather(city);
+        Weather cityWeather = restTemplate.getForObject(weatherUrl, Weather.class);
         List<WeatherForecast> dayWeatherList = new ArrayList<>();
 
         List<WeatherObjectList> threeDaysCityWeather = cityWeather.getList().subList(0, 3);
