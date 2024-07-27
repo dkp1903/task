@@ -103,7 +103,7 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     private String getWeatherUrl(String city) {
-        String apiKey = "6449bfe949acc1c7c9b003ba7c7660af";
+        String apiKey = System.getEnv("WEATHER_API_KEY");
         String baseUrl = "https://api.openweathermap.org/data/2.5/forecast";
         String defaultCity = "Pune";
         try {
