@@ -19,6 +19,13 @@ import com.publicissapient.weather.model.WeatherForecast;
 import com.publicissapient.weather.service.WeatherService;
 import com.publicissapient.weather.util.Constants;
 import com.publicissapient.weather.util.WeatherUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.io.IOException;
 
 /**
  * The implementation class for WeatherService interface.
@@ -58,8 +65,7 @@ public class WeatherServiceImpl implements WeatherService {
     public List<WeatherForecast> getCityWeather(String city) {
         
         LOG.trace("Entering getCityWeather(city={})", city);
-        weatherUrl = "https://samples.openweathermap.org/data/2.5/forecast?q=&appid=d2929e9483efc82c82c32ee7e02d563e";
-        // Weather cityWeather = weatherClient.getWeather(city);
+        weatherUrl = getWeatherUrl(city);
         Weather cityWeather = restTemplate.getForObject(weatherUrl, Weather.class);
         List<WeatherForecast> dayWeatherList = new ArrayList<>();
 
@@ -96,4 +102,42 @@ public class WeatherServiceImpl implements WeatherService {
         return dayWeatherList;
     }
 
+    private String getWeatherUrl(String city) {
+        String apiKey = "6449bfe949acc1c7c9b003ba7c7660af";
+        String baseUrl = "https://api.openweathermap.org/data/2.5/forecast";
+        String defaultCity = "Pune";
+        try {
+            // Encode the city parameter to handle special characters and spaces
+            String encodedCity = URLEncoder.encode(city, "UTF-8");
+            String fullUrl = String.format("%s?q=%s&appid=%s", baseUrl, encodedCity, apiKey);
+            // Check if the API is reachable
+            if (isAPIReachable(fullUrl)) {
+                return fullUrl;
+            } else {
+                System.out.println("API is down. Returning default city URL.");
+                return String.format("%s?q=%s&appid=%s", baseUrl, URLEncoder.encode(defaultCity, "UTF-8"), apiKey);
+            }
+        } catch (UnsupportedEncodingException e) {
+            // Handle the exception if encoding fails
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static boolean isAPIReachable(String fullUrl) {
+        try {
+            URL url = new URL(fullUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.connect();
+            int code = connection.getResponseCode();
+            return (code == 200);
+        } catch (IOException e) {
+            // Handle exceptions related to network connectivity or API issues
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
+
+
